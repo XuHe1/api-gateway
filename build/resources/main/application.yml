@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 8080
+
+eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+#env: dev
+#server:
+#  port: ${PORT:80}
+#
+#eureka:
+#  instance:
+#    leaseRenewalIntervalInSeconds: ${LEASE-TTL:30}
+#    statusPageUrlPath: /info
+#    healthCheckUrlPath: /health
+#  client:
+#    service-url:
+#      defaultZone: ${DEFAULT-ZONE:http://localhost:8761/eureka/}
+#
+#hystrix:
+#  command:
+#    default:
+#      execution:
+#        timeout:
+#          enabled: true
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: ${TIMEOUT:3000}
+
+
+
