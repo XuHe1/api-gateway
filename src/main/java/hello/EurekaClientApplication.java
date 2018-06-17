@@ -22,34 +22,8 @@ import java.util.List;
 @EnableHystrixDashboard
 @EnableZuulProxy
 public class EurekaClientApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(EurekaClientApplication.class, args);
     }
-    @Bean
-    public Filter shallowEtagHeaderFilter() {
-        return new ShallowEtagHeaderFilter();
-    }
-}
-
-@RestController
-class ServiceInstanceRestController {
-
-    @Autowired
-    private DiscoveryClient discoveryClient;
-
-    @RequestMapping("/service-instances/{applicationName}")
-    public List<ServiceInstance> serviceInstancesByApplicationName(
-            @PathVariable String applicationName) {
-        return this.discoveryClient.getInstances(applicationName);
-    }
-
-    @RequestMapping("/hello/{user}")
-    public String  sayHello(
-            @PathVariable String user) {
-        return "hello " + user;
-    }
-
-
 
 }
